@@ -12,3 +12,7 @@ $.ajax({
   throw err;
 });
 
+
+$("#search").on("click",function(){
+var articleName = $("#searchInput").val().trim()
+})
