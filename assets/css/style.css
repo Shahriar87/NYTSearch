@@ -1,0 +1,42 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    /* left: 10%; */
+    margin: 0 auto;
+    font-family: 'Quicksand', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ///////// */
+/* NYTSEARCH */
+/* ///////// */
+
+#header {
+    background-color: #0E0E52;
+    display: flex;
+    padding: 5%;
+    margin: 0 5%;
+}
+
+#header #headerText {
+    margin: 0 auto;
+    color: white;
+}
+
+#searchBody {
+    background-color: rgba(255, 255, 255, 0.37);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2.5% 25%;
+    flex: 1;
+    line-height: 2em;
+}
