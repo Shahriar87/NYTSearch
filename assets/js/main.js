@@ -1,38 +1,65 @@
 // Built by LucyBot. www.lucybot.com
 var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 url += '?' + $.param({
-  'api-key': "270119312d3f42e6bc0f872ecc751104"
+    'api-key': "270119312d3f42e6bc0f872ecc751104"
 });
 $.ajax({
-  url: url,
-  method: 'GET',
-}).done(function(result) {
+    url: url,
+    method: 'GET',
+}).done(function (result) {
 
 
-    // var article = $("#searchInput").text();
+    $("#search").on("click", function (event) {
 
-    // var results = result.data;
+        event.preventDefault();
 
+        var articleName = $("#searchInput").val().trim()
 
-    // personImage.attr("src", results[i].images.fixed_height.url);
+        var article
+        var articleHeadline
 
-    for (var i = 0; i < results.length; i++) {
-
-        var article = results.docs[i];
-
-        var articleImage = $("<img>");
-        articleImage.attr("src", result.docs[i].web_url)
-
-        console.log()
+        var articleURL;
 
 
-    }
+        console.log(articleName);
+
+
+        for (var i = 0; i < result.response.docs.length; i++) {
+
+            article = result.response.docs[i];
+
+            // console.log(article);
+
+            articleURL = result.response.docs[i].web_url;
+
+            articleHeadline = result.response.docs[i].headline;
+
+
+            if (window.location.href.indexOf(articleName) > -1) { 
+
+                $("#topArticles").empty();
+
+                $("#topArticles").append("<p><a href = " + JSON.stringify(articleURL) + " target='_blank'>" + JSON.stringify(articleHeadline) + "</a></p>");
+
+            } else {
+                $("#topArticles").empty();
+                $("#topArticles").append("<p>Article Not Found</p>");
+            }
+            
+            // console.log(articleHeadline);
+            // console.log(JSON.stringify(articleHeadline));
+
+        };
+
+    });
 
 
 
-  console.log(result);
-}).fail(function(err) {
-  throw err;
+
+
+    console.log(result);
+}).fail(function (err) {
+    throw err;
 });
 
 
