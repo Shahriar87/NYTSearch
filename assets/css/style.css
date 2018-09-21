@@ -1,0 +1,17 @@
+#header {
+    background: #01117F;
+    color: white;
+}
+
+#searchBody {}
+
+#searchTerm {
+    font-weight: bolder;
+    background: #f8f8f8;
+}
+
+#numRecords {}
+
+#startYear {}
+
+#endYear {}
