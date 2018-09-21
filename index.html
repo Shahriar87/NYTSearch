@@ -6,32 +6,37 @@
     <title>NY Times</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
 </head>
 <body>
     
     <div id="header">
-        <h1 id="headerText">New York Times Search</h1>
+        <h1 id="headerText"><i class="far fa-newspaper"></i> New York Times Search</h1>
     </div>
 
     <div id="searchBody">
         <div id="searchTerm">
             <p>Search Term:</p>
-            <input type="text">
+            <input id="searchInput" type="text">
         </div>
         
         <div id="numRecords">
             <p>Number of Records to Retrieve:</p>
-            <input type="text">
+            <input id="recordsInput" type="text">
         </div>
 
         <div id="startYear">
                 <p>Start Year (Optional):</p>
-                <input type="text">
+                <input id="startInput" type="text">
         </div>
 
         <div id="endYear">
                 <p>End Year (Optional):</p>
-                <input type="text">
+                <input id="endInput" type="text">
+                <button id="search"><i class="fas fa-search"></i> Search</button>
+                <button id="clearResults"><i class="fas fa-trash-alt"></i> Clear Results</button>
         </div>
         
     </div>
