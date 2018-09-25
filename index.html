@@ -32,17 +32,21 @@
 
         <div id="numRecords">
             <p>Number of Records to Retrieve:</p>
-            <input id="recordsInput" type="text">
+            <select class="form-control" id="selectRecords">
+                <option value=1>1</option>
+                <option value=5 selected>5</option>
+                <option value=10>10</option>
+            </select>
         </div>
 
-        <div id="startYear">
+        <div>
             <p>Start Year (Optional):</p>
-            <input type="text">
+            <input type="text" id="startYear">
         </div>
 
-        <div id="endYear">
+        <div >
             <p>End Year (Optional):</p>
-            <input type="text">
+            <input type="text" id="endYear">
             <button id="search"><i class="fas fa-search"></i> Search</button>
             <button id="clearResults"><i class="fas fa-trash-alt"></i> Clear Results</button>
         </div>
@@ -50,7 +54,7 @@
     </div>
 
     <div id="topArticles">
-
+        
     </div>
 
 </body>

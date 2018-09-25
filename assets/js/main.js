@@ -1,65 +1,80 @@
-// Built by LucyBot. www.lucybot.com
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-url += '?' + $.param({
-    'api-key': "270119312d3f42e6bc0f872ecc751104"
-});
-$.ajax({
-    url: url,
-    method: 'GET',
-}).done(function (result) {
+var authKey = "270119312d3f42e6bc0f872ecc751104";
 
+var urlBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + "api-key=" + authKey;
 
-    $("#search").on("click", function (event) {
+var searchInput = "";
+var numberResults = 0;
+var startYear = 0;
+var endYear = 0;
 
-        event.preventDefault();
+var counter = 0;
 
-        var articleName = $("#searchInput").val().trim()
+function queryRun(numberArticle, Url) {
+    $.ajax({
+        url: Url,
+        method: "GET"
+    }).done(function (result) {
+        console.log(Url);
+        console.log(numberArticle);
+        console.log(result);
 
-        var article
-        var articleHeadline
+        $("#topArticles").empty();
 
-        var articleURL;
+        for (var i = 0; i < numberArticle; i++) {
 
+            var articleDiv = $("<div>");
+            articleDiv.addClass("well");
+            articleDiv.attr("id", "article-" + i);
+            articleDiv.attr("style", "border: 1px solid black; padding: 10px");
 
-        console.log(articleName);
+            $("#topArticles").append($(articleDiv));
 
-
-        for (var i = 0; i < result.response.docs.length; i++) {
-
-            article = result.response.docs[i];
-
-            // console.log(article);
-
-            articleURL = result.response.docs[i].web_url;
-
-            articleHeadline = result.response.docs[i].headline;
-
-
-            if (window.location.href.indexOf(articleName) > -1) { 
-
-                $("#topArticles").empty();
-
-                $("#topArticles").append("<p><a href = " + JSON.stringify(articleURL) + " target='_blank'>" + JSON.stringify(articleHeadline) + "</a></p>");
-
-            } else {
-                $("#topArticles").empty();
-                $("#topArticles").append("<p>Article Not Found</p>");
+            if (result.response.docs[i].headline != "null") {
+                $("#article-" + i).append("<h2>" + result.response.docs[i].headline.main + "</h2>");
             }
-            
-            // console.log(articleHeadline);
-            // console.log(JSON.stringify(articleHeadline));
 
-        };
+            if (result.response.docs[i].byline && result.response.docs[i].byline.hasOwnProperty("original")) {
 
-    });
+                if (result.response.docs[i].byline.original === null) {
+                    delete result.response.docs[i].byline.original;
+                } else {
+                    $("#article-" + i).append("<h3>" + result.response.docs[i].byline.original + "</h3>");
+                }
+            }
+
+            if (result.response.docs[i].hasOwnProperty("section_name")) {
+                $("#article-" + i).append("<h4>" + result.response.docs[i].section_name + "</h4>");
+            }
+
+            $("#article-" + i).append("<h4>" + result.response.docs[i].pub_date + "</h4>");
+            $("#article-" + i).append("<h4><a href='" + result.response.docs[i].web_url + "' target='_blank'>" + result.response.docs[i].web_url + "</a></h4>");
+
+        }
+    })
+
+}
+
+$("#search").on("click", function () {
+
+    searchInput = $("#searchInput").val().trim();
+    var newURL = urlBase + "&q=" + searchInput;
+
+    numberResults = $("#selectRecords").val();
+
+    console.log(numberResults);
+
+    startYear = $("#startYear").val().trim();
+    endYear = $("#endYear").val().trim();
 
 
+    if (parseInt(startYear)) {
+        newURL = newURL + "&begin_date=" + startYear + "0101";
+    }
 
+    if (parseInt(endYear)) {
+        newURL = newURL + "&end_date=" + endYear + "1231";
+    }
+    queryRun(numberResults, newURL);
+    return false;
 
-
-    console.log(result);
-}).fail(function (err) {
-    throw err;
 });
-
-
