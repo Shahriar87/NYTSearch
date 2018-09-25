@@ -78,3 +78,8 @@ $("#search").on("click", function () {
     return false;
 
 });
+
+
+$("#clearResults").on("click", function () {
+    $("#topArticles").empty();
+});
