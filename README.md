@@ -1,5 +1,5 @@
 # NYTSearch
-![alt text](https://goo.gl/images/Y3EYt3)
+![alt text](https://thehill.com/sites/default/files/styles/article_full/public/article_images/newyorktimes_120616getty.jpg?itok=zTpsL916)
 
 ## Project Brief
 A real time Stock Price indicator with Candlestick Chart and Funny interactive Meme generator to add humor
