@@ -23,7 +23,7 @@ function queryRun(numberArticle, Url) {
         for (var i = 0; i < numberArticle; i++) {
 
             var articleDiv = $("<div>");
-            articleDiv.addClass("well");
+            articleDiv.addClass("card-body contentWrap");
             articleDiv.attr("id", "article-" + i);
             articleDiv.attr("style", "border: 1px solid black; padding: 10px");
 

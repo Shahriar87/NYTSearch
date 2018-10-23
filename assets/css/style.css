@@ -1,22 +1,22 @@
-*, *:before, *:after {
+/* *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
     display: flex;
-    /* left: 10%; */
+    left: 10%;
     margin: 0 auto;
     font-family: 'Quicksand', sans-serif;
     flex-direction: column;
     justify-content: center;
-}
+}  */
 
 /* ///////// */
 /* NYTSEARCH */
 /* ///////// */
-
+/* 
 #header {
     background-color: #0E0E52;
     display: flex;
@@ -56,4 +56,8 @@ body {
     flex: 1;
     padding: 3% 2.5%;
     border: 1px solid rgba(128, 128, 128, 0.288);
+} */
+
+.contentWrap {
+    overflow: hidden;
 }
