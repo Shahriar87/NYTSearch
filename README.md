@@ -2,16 +2,18 @@
 ![alt text](https://thehill.com/sites/default/files/styles/article_full/public/article_images/newyorktimes_120616getty.jpg?itok=zTpsL916)
 
 ## Project Brief
-A real time Stock Price indicator with Candlestick Chart and Funny interactive Meme generator to add humor
+A search engine app that returns news article information with links using New York Times API
 
 ## Project Walkthrough
 ### MVP:
-* User can search any NASDAQ listed company with a dropdown selector 
-* The stock prices for todays market will be shown in a list as well as in a Candlestick chart for last 30 days price
-* To add humor, Random Meme will generate based on stock performance
-* User can also post comments with Meme dynamically generated based on their input text and selected image from dropdown list
+* User can search articles based on any topic.
+* User can filter article archives based on start & end year
+* User can limit number of results return between 1, 5 or 10. Default number of results are 5
+
+### Methods
+* Based on user input topic as strings and filter data, the app used NYTimes API to search realtime database and return results as objects. Which is then filtered using API meta data and the results are appended in the webpage 
 
 ## Technologies Used: 
-HTML, CSS, Bootstrap, Firebase, AnyChart, jQuery, Alpha Vantage API, Meme Generator API
+HTML, CSS, Bootstrap, jQuery, NYTimes API
 
-[Check out the StockMemer](https://shahriar87.github.io/StockMemer/)
+[Check out the Search Engine](https://shahriar87.github.io/NYTSearch/)
